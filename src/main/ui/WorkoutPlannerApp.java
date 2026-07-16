@@ -14,7 +14,7 @@ public class WorkoutPlannerApp {
      * EFFECTS: runs the application
      */
     public WorkoutPlannerApp() {
-        //
+        runWorkoutPlanner();
     }
 
     /*
@@ -34,7 +34,20 @@ public class WorkoutPlannerApp {
      * EFFECTS: continues processing hte user input until th user quits
      */
     private void runWorkoutPlanner() {
-        //
+        boolean keepGoing = true;
+        String command;
+        initialize();
+        while (keepGoing) {
+            displayMenu();
+            command = input.next();
+            command = command.toLowerCase();
+            if (command.equals("q")) {
+                keepGoing = false;
+            } else {
+                processCommand(command);
+            }
+        }
+        System.out.println("Hope to see you later!!");
     }
 
     /*
