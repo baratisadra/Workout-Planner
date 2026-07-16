@@ -3,6 +3,9 @@ package ui;
 import java.util.Scanner;
 import model.ExerciseLibrary;
 import model.PersonalExerciseList;
+import java.util.ArrayList;
+import model.Exercise;
+import model.Exercise;
 
 // The Application for the Workout Planner
 public class WorkoutPlannerApp {
@@ -25,6 +28,32 @@ public class WorkoutPlannerApp {
      */
     private void initialize() {
         exerciseLibrary = new ExerciseLibrary();
+
+        exerciseLibrary.addExercise(new Exercise("Lat Pulldown", "Back"));
+        exerciseLibrary.addExercise(new Exercise("Barbell row", "Back"));
+        exerciseLibrary.addExercise(new Exercise("T-Row", "Back"));
+        exerciseLibrary.addExercise(new Exercise("Pullover", "Back"));
+
+        exerciseLibrary.addExercise(new Exercise("Bench Press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Incline press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Decline Press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Fly", "Chest"));
+        
+        exerciseLibrary.addExercise(new Exercise("Shoulder Press", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Lateral Raise", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Reverse Raise", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Front Raise", "Shoulders"));
+
+        exerciseLibrary.addExercise(new Exercise("Bicep Curl", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("Tricep Extention", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("OverHead Extention", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("Incline Curl", "Arms"));
+
+        exerciseLibrary.addExercise(new Exercise("Squat", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Press", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Extention", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Curl", "Legs"));
+
         personalExerciseList = new PersonalExerciseList();
         input = new Scanner(System.in);
     }
@@ -54,6 +83,7 @@ public class WorkoutPlannerApp {
      * EFFECTS: displays the menu to users
      */
     private void displayMenu() {
+        System.out.println("");
         System.out.println("Workout Planner");
         System.out.println("-----------------------");
         System.out.println("1. View recommended exercises");
@@ -85,6 +115,45 @@ public class WorkoutPlannerApp {
      * EFFECTS: displays the recommended exercises for the chosen muscle group
      */
     private void viewRecommendedExercises() {
-        //
+        System.out.println("Choose a muscle group:");
+        System.out.println("1. Back");
+        System.out.println("2. Chest");
+        System.out.println("3. Shoulders");
+        System.out.println("4. Arms");
+        System.out.println("5. Legs");
+        String choice = input.next();
+        if (choice.equals("1")) {
+            displayExercisesForMuscleGroup("Back");
+        } else if (choice.equals("2")) {
+            displayExercisesForMuscleGroup("Chest");
+        } else if (choice.equals("3")) {
+            displayExercisesForMuscleGroup("Shoulders");
+        } else if (choice.equals("4")) {
+            displayExercisesForMuscleGroup("Arms");
+        } else if (choice.equals("5")) {
+            displayExercisesForMuscleGroup("Legs");
+        } else {
+            System.out.println("Try to make the right selection.");
+        }
+        
+    }
+
+    /*
+     * EFFECTS: displays all recommended exercises for the given muscle group 
+     */
+    private void displayExercisesForMuscleGroup(String muscleGroup) {
+        ArrayList<Exercise> matchingExercises = 
+                exerciseLibrary.getExercisesForMuscleGroup(muscleGroup);
+
+        if (matchingExercises.isEmpty()) {
+            System.out.println("No recommended exercises were found.");
+        } else {
+            System.out.println("Recommended exercises:");
+            for (int i=0; i < matchingExercises.size(); i++) {
+                Exercise exercise = matchingExercises.get(i);
+                System.out.println((i + 1) + ". " + exercise.getName());
+            }
+
+        }
     }
 }
