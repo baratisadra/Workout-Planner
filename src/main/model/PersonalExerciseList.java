@@ -31,6 +31,6 @@ public class PersonalExerciseList {
      * EFFECTS: removing the exercise from the personal exercise list
      */
     public void removeExercise(Exercise exercise){
-        // 
+        exercises.remove(exercise);
     }
 }
