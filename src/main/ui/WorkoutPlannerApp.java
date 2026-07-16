@@ -41,7 +41,7 @@ public class WorkoutPlannerApp {
             displayMenu();
             command = input.next();
             command = command.toLowerCase();
-            if (command.equals("q")) {
+            if (command.equals("5")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -60,7 +60,7 @@ public class WorkoutPlannerApp {
         System.out.println("2. view my workout");
         System.out.println("3. Add costum exercise to my workout");
         System.out.println("4. Remove exercise from my workout");
-        System.out.println("QUit");
+        System.out.println("5. QUit");
     }
 
     /*
@@ -68,7 +68,16 @@ public class WorkoutPlannerApp {
      * EFFECTS: processes the user's command
      */
     private void processCommand(String command) {
-        //
+        if (command.equals("1")) {
+            System.out.println("x");
+        } else if (command.equals("2")) {
+            System.out.println("y");
+        } else if (command.equals("3")) {
+            System.out.println("z");
+        } else if (command.equals("4")) {
+            System.out.println("a");
+        } else {
+            System.out.println("Try to make the right selection.");
+        }
     }
-
 }
