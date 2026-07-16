@@ -10,10 +10,10 @@ public class ExerciseLibrary {
      * EFFECTS: Constructs an empty library
      */
     public ExerciseLibrary(){
-        //
+        exercises = new ArrayList<>();
     }
 
     public ArrayList<Exercise> getExercises(){
-        return null;
+        return exercises;
     }
 }
