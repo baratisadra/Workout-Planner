@@ -8,7 +8,7 @@ import model.PersonalExerciseList;
 public class WorkoutPlannerApp {
     private ExerciseLibrary exerciseLibrary;
     private PersonalExerciseList personalExerciseList;
-    Private Scanner input;
+    private Scanner input;
 
     /*
      * EFFECTS: runs the application
