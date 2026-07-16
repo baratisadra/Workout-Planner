@@ -57,10 +57,10 @@ public class WorkoutPlannerApp {
         System.out.println("Workout Planner");
         System.out.println("-----------------------");
         System.out.println("1. View recommended exercises");
-        System.out.println("2. view my workout");
+        System.out.println("2. View my workout");
         System.out.println("3. Add costum exercise to my workout");
         System.out.println("4. Remove exercise from my workout");
-        System.out.println("5. QUit");
+        System.out.println("5. Quit");
     }
 
     /*
@@ -69,7 +69,7 @@ public class WorkoutPlannerApp {
      */
     private void processCommand(String command) {
         if (command.equals("1")) {
-            System.out.println("x");
+            viewRecommendedExercises();
         } else if (command.equals("2")) {
             System.out.println("y");
         } else if (command.equals("3")) {
@@ -79,5 +79,12 @@ public class WorkoutPlannerApp {
         } else {
             System.out.println("Try to make the right selection.");
         }
+    }
+
+    /*
+     * EFFECTS: displays the recommended exercises for the chosen muscle group
+     */
+    private void viewRecommendedExercises() {
+        //
     }
 }
