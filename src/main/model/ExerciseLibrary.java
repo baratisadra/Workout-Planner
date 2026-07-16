@@ -22,6 +22,6 @@ public class ExerciseLibrary {
      * EFFECTS: adding the exercise to the exercise library
      */
     public void addExercise(Exercise exercise) {
-        //
+        exercises.add(exercise);
     }
 }
