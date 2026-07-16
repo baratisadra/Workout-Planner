@@ -103,7 +103,7 @@ public class WorkoutPlannerApp {
         } else if (command.equals("2")) {
             viewPersonalWorkout();
         } else if (command.equals("3")) {
-            System.out.println("z");
+            addCustomExercise();
         } else if (command.equals("4")) {
             System.out.println("a");
         } else {
@@ -190,5 +190,19 @@ public class WorkoutPlannerApp {
                 System.out.println((i + 1) + ". " + exercise.getName());
             }
         }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: creates a custom exercise and adds in to the user's personal list
+     */
+    private void addCustomExercise() {
+        System.out.println("Enter your desired exercise's name:");
+        String name = input.next();
+        System.out.println("Enter the exercise's muscle group");
+        String muscleGroup = input.next();
+        Exercise customExercise = new Exercise(name, muscleGroup);
+        personalExerciseList.addExercise(customExercise);
+        System.out.println(name + "is now added to your workout list.");
     }
 }
