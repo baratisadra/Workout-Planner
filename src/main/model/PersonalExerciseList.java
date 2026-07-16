@@ -10,4 +10,12 @@ public class PersonalExerciseList {
     public PersonalExerciseList(){
         exercises = new ArrayList<>();
     }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds an exercise to the personal exercise list
+     */
+    public void addExercise(Exercise exercise){
+        exercises.add(exercise);
+    }
 }
