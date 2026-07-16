@@ -22,4 +22,20 @@ public class PersonalExerciseListTest {
     void testConstructor(){
         assertTrue(testList.getExercises().isEmpty());
     }
+
+    @Test
+    void testAddExercise(){
+        testList.addExercise(exercise1);
+        assertEquals(1, testList.getExercises().size());
+        assertEquals(exercise1, testList.getExercises().get(0));
+    }
+
+    @Test
+    void testAddFewExercises(){
+        testList.addExercise(exercise1);
+        testList.addExercise(exercise2);
+        assertEquals(2, testList.getExercises().size());
+        assertEquals(exercise1, testList.getExercises().get(0));
+        assertEquals(exercise2, testList.getExercises().get(1));
+    }
 }
