@@ -41,7 +41,13 @@ public class WorkoutPlannerApp {
      * EFFECTS: displays the menu to users
      */
     private void displayMenu() {
-        //
+        System.out.println("Workout Planner");
+        System.out.println("-----------------------");
+        System.out.println("1. View recommended exercises");
+        System.out.println("2. view my workout");
+        System.out.println("3. Add costum exercise to my workout");
+        System.out.println("4. Remove exercise from my workout");
+        System.out.println("QUit");
     }
 
     /*
