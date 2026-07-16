@@ -18,7 +18,7 @@ public class ExerciseLibrary {
     }
 
     /*
-     * MODIFIES: tihs
+     * MODIFIES: this
      * EFFECTS: adding the exercise to the exercise library
      */
     public void addExercise(Exercise exercise) {
@@ -26,7 +26,7 @@ public class ExerciseLibrary {
     }
 
     /*
-     * EFFECTS: Returns the exercises in the chosen musclegruop category
+     * EFFECTS: Returns the exercises in the chosen musclegroup category
      */
     public ArrayList<Exercise> getExercisesForMuscleGroup(String musclegroup) {
         ArrayList<Exercise> matchingExercises = new ArrayList<>();
