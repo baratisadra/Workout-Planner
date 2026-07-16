@@ -5,7 +5,6 @@ import model.ExerciseLibrary;
 import model.PersonalExerciseList;
 import java.util.ArrayList;
 import model.Exercise;
-import model.Exercise;
 
 // The Application for the Workout Planner
 public class WorkoutPlannerApp {
@@ -149,7 +148,7 @@ public class WorkoutPlannerApp {
             System.out.println("No recommended exercises were found.");
         } else {
             System.out.println("Recommended exercises:");
-            for (int i=0; i < matchingExercises.size(); i++) {
+            for (int i = 0; i < matchingExercises.size(); i++) {
                 Exercise exercise = matchingExercises.get(i);
                 System.out.println((i + 1) + ". " + exercise.getName());
             }
@@ -163,7 +162,7 @@ public class WorkoutPlannerApp {
      * EFFECTS: adds the recommended exercise to tte personal list
      */
 
-     private void addRecommendedExercise(ArrayList<Exercise> matchingExercises) {
+    private void addRecommendedExercise(ArrayList<Exercise> matchingExercises) {
         System.out.println("Enter the number of the exercises you want to add:");
         int choice = input.nextInt();
 
@@ -174,7 +173,8 @@ public class WorkoutPlannerApp {
         } else {
             System.out.println("Try to make the right selection.");
         }
-     }
+        
+    }
 
     /*
      * EFFECTS: displays all exercises in the user's personal exercise list
@@ -215,15 +215,13 @@ public class WorkoutPlannerApp {
             System.out.println("The workout lis is empty!");
         } else {
             viewPersonalWorkout();
-            System.out.println
-            ("Please enter the number behind the exercisethat you want to remove.");
+            System.out.println("Please enter the number behind the exercisethat you want to remove.");
             int choice = input.nextInt();
             if (choice >= 1 && choice <= personalExerciseList.getExercises().size()) {
                 Exercise selectedExercise = 
-                personalExerciseList.getExercises().get(choice - 1);
+                        personalExerciseList.getExercises().get(choice - 1);
                 personalExerciseList.removeExercise(selectedExercise);
-                System.out.println(selectedExercise.getName() +
-                 "is now removed from your workout.");
+                System.out.println(selectedExercise.getName() + "is now removed from your workout.");
             } else {
                 System.out.println("Try to make the right selection");
             }
