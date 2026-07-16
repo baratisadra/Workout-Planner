@@ -105,7 +105,7 @@ public class WorkoutPlannerApp {
         } else if (command.equals("3")) {
             addCustomExercise();
         } else if (command.equals("4")) {
-            System.out.println("a");
+            removeExerciseFromPersonalWorkout();
         } else {
             System.out.println("Try to make the right selection.");
         }
@@ -204,5 +204,29 @@ public class WorkoutPlannerApp {
         Exercise customExercise = new Exercise(name, muscleGroup);
         personalExerciseList.addExercise(customExercise);
         System.out.println(name + "is now added to your workout list.");
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: Allows the user to remove an exercise from the personal exercise list
+     */
+    private void removeExerciseFromPersonalWorkout() {
+        if (personalExerciseList.getExercises().isEmpty()) {
+            System.out.println("The workout lis is empty!");
+        } else {
+            viewPersonalWorkout();
+            System.out.println
+            ("Please enter the number behind the exercisethat you want to remove.");
+            int choice = input.nextInt();
+            if (choice >= 1 && choice <= personalExerciseList.getExercises().size()) {
+                Exercise selectedExercise = 
+                personalExerciseList.getExercises().get(choice - 1);
+                personalExerciseList.removeExercise(selectedExercise);
+                System.out.println(selectedExercise.getName() +
+                 "is now removed from your workout.");
+            } else {
+                System.out.println("Try to make the right selection");
+            }
+        }
     }
 }
