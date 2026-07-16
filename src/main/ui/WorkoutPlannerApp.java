@@ -28,4 +28,12 @@ public class WorkoutPlannerApp {
         personalExerciseList = new PersonalExerciseList();
         input = new Scanner(System.in);
     }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: continues processing hte user input until th user quits
+     */
+    private void runWorkoutPlanner() {
+        //
+    }
 }
