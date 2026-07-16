@@ -25,5 +25,12 @@ public class PersonalExerciseList {
     public ArrayList<Exercise> getExercises(){
         return exercises;
     }
-    
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: removing the exercise from the personal exercise list
+     */
+    public void removeExercise(Exercise exercise){
+        // 
+    }
 }
