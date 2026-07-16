@@ -25,4 +25,5 @@ public class PersonalExerciseList {
     public ArrayList<Exercise> getExercises(){
         return exercises;
     }
+    
 }
