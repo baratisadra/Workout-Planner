@@ -36,4 +36,20 @@ public class WorkoutPlannerApp {
     private void runWorkoutPlanner() {
         //
     }
+
+    /*
+     * EFFECTS: displays the menu to users
+     */
+    private void displayMenu() {
+        //
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: processes the user's command
+     */
+    private void processCommand(String command) {
+        //
+    }
+
 }
