@@ -24,4 +24,11 @@ public class ExerciseLibrary {
     public void addExercise(Exercise exercise) {
         exercises.add(exercise);
     }
+
+    /*
+     * EFFECTS: Returns the exercises in the chosen musclegruop category
+     */
+    public ArrayList<Exercise> getExercisesForMuscleGroup(String musclegroup) {
+        return new ArrayList<>();
+    }
 }
