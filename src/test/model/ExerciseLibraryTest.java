@@ -48,4 +48,6 @@ public class ExerciseLibraryTest {
         assertEquals(2, testLibrary.getExercisesForMuscleGroup("Back").size());
         assertEquals(back1, testLibrary.getExercisesForMuscleGroup("Back").get(0));
         assertEquals(back2, testLibrary.getExercisesForMuscleGroup("Back").get(1));
+    }
+
 }
