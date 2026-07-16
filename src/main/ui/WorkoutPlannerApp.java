@@ -16,4 +16,13 @@ public class WorkoutPlannerApp {
     public WorkoutPlannerApp() {
         //
     }
+
+    /*
+     * 
+     * 
+     * 
+     */
+    private void initialize() {
+        //
+    }
 }
