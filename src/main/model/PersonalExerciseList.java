@@ -18,4 +18,11 @@ public class PersonalExerciseList {
     public void addExercise(Exercise exercise){
         exercises.add(exercise);
     }
+
+    /*
+     * EFFECTS: returns all the exercises in the personal list
+     */
+    public ArrayList<Exercise> getExercises(){
+        return exercises;
+    }
 }
