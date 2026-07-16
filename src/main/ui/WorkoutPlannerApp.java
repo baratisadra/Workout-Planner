@@ -101,7 +101,7 @@ public class WorkoutPlannerApp {
         if (command.equals("1")) {
             viewRecommendedExercises();
         } else if (command.equals("2")) {
-            System.out.println("y");
+            viewPersonalWorkout();
         } else if (command.equals("3")) {
             System.out.println("z");
         } else if (command.equals("4")) {
@@ -153,7 +153,42 @@ public class WorkoutPlannerApp {
                 Exercise exercise = matchingExercises.get(i);
                 System.out.println((i + 1) + ". " + exercise.getName());
             }
+            addRecommendedExercise(matchingExercises);
 
+        }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds the recommended exercise to tte personal list
+     */
+
+     private void addRecommendedExercise(ArrayList<Exercise> matchingExercises) {
+        System.out.println("Enter the number of the exercises you want to add:");
+        int choice = input.nextInt();
+
+        if (choice >= 1 && choice <= matchingExercises.size()) {
+            Exercise selectedExercise = matchingExercises.get(choice - 1);
+            personalExerciseList.addExercise(selectedExercise);
+            System.out.println(selectedExercise.getName() + "is added to your workout.");
+        } else {
+            System.out.println("Try to make the right selection.");
+        }
+     }
+
+    /*
+     * EFFECTS: displays all exercises in the user's personal exercise list
+     */
+    private void viewPersonalWorkout() {
+        if (personalExerciseList.getExercises().isEmpty()) {
+            System.out.println("Your workout list is empty.");
+        } else {
+            System.out.println("My Workout:");
+
+            for (int i = 0; i < personalExerciseList.getExercises().size(); i++) {
+                Exercise exercise = personalExerciseList.getExercises().get(i);
+                System.out.println((i + 1) + ". " + exercise.getName());
+            }
         }
     }
 }
