@@ -9,18 +9,18 @@ public class Exercise {
      * REQUIERS: name and musclegroup are requierd to have non-zero lengths
      * EFFECTS: Constructs an exercise with a given name and a given musclegroup
      */
-    public Exercise(String name, String muscleGroup){
+    public Exercise(String name, String muscleGroup) {
         this.name = name;
         this.muscleGroup = muscleGroup;
     }
 
     // EFFECTS: returns the execises's name 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
     // EFFECTS: returns the musclegroup that the excercise is targeting
-    public String getMuscleGroup(){
+    public String getMuscleGroup() {
         return muscleGroup;
     }
 

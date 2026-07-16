@@ -7,7 +7,7 @@ public class PersonalExerciseList {
     private ArrayList<Exercise> exercises;
 
     // EFFECTS: Constructing an empty list of user's personal list of exercises
-    public PersonalExerciseList(){
+    public PersonalExerciseList() {
         exercises = new ArrayList<>();
     }
 
@@ -15,14 +15,14 @@ public class PersonalExerciseList {
      * MODIFIES: this
      * EFFECTS: adds an exercise to the personal exercise list
      */
-    public void addExercise(Exercise exercise){
+    public void addExercise(Exercise exercise) {
         exercises.add(exercise);
     }
 
     /*
      * EFFECTS: returns all the exercises in the personal list
      */
-    public ArrayList<Exercise> getExercises(){
+    public ArrayList<Exercise> getExercises() {
         return exercises;
     }
 
@@ -30,7 +30,7 @@ public class PersonalExerciseList {
      * MODIFIES: this
      * EFFECTS: removing the exercise from the personal exercise list
      */
-    public void removeExercise(Exercise exercise){
+    public void removeExercise(Exercise exercise) {
         exercises.remove(exercise);
     }
 }
