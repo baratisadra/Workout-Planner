@@ -18,9 +18,10 @@ public class WorkoutPlannerApp {
     }
 
     /*
-     * 
-     * 
-     * 
+     * MODIFIES: this
+     * EFFECTS: initializes the scanner,
+     *                      the personal exercise list
+     *                      and the exercise library
      */
     private void initialize() {
         //
