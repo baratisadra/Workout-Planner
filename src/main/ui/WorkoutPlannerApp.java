@@ -24,6 +24,8 @@ public class WorkoutPlannerApp {
      *                      and the exercise library
      */
     private void initialize() {
-        //
+        exerciseLibrary = new ExerciseLibrary();
+        personalExerciseList = new PersonalExerciseList();
+        input = new Scanner(System.in);
     }
 }
