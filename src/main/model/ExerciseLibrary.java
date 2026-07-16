@@ -21,4 +21,7 @@ public class ExerciseLibrary {
      * MODIFIES: tihs
      * EFFECTS: adding the exercise to the exercise library
      */
+    public void addExercise(Exercise exercise) {
+        //
+    }
 }
