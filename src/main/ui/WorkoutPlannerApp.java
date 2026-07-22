@@ -39,32 +39,26 @@ public class WorkoutPlannerApp {
      */
     private void initialize() {
         exerciseLibrary = new ExerciseLibrary();
-
         exerciseLibrary.addExercise(new Exercise("Lat Pulldown", "Back"));
         exerciseLibrary.addExercise(new Exercise("Barbell row", "Back"));
         exerciseLibrary.addExercise(new Exercise("T-Row", "Back"));
         exerciseLibrary.addExercise(new Exercise("Pullover", "Back"));
-
         exerciseLibrary.addExercise(new Exercise("Bench Press", "Chest"));
         exerciseLibrary.addExercise(new Exercise("Incline press", "Chest"));
         exerciseLibrary.addExercise(new Exercise("Decline Press", "Chest"));
         exerciseLibrary.addExercise(new Exercise("Fly", "Chest"));
-        
         exerciseLibrary.addExercise(new Exercise("Shoulder Press", "Shoulders"));
         exerciseLibrary.addExercise(new Exercise("Lateral Raise", "Shoulders"));
         exerciseLibrary.addExercise(new Exercise("Reverse Raise", "Shoulders"));
         exerciseLibrary.addExercise(new Exercise("Front Raise", "Shoulders"));
-
         exerciseLibrary.addExercise(new Exercise("Bicep Curl", "Arms"));
         exerciseLibrary.addExercise(new Exercise("Tricep Extention", "Arms"));
         exerciseLibrary.addExercise(new Exercise("OverHead Extention", "Arms"));
         exerciseLibrary.addExercise(new Exercise("Incline Curl", "Arms"));
-
         exerciseLibrary.addExercise(new Exercise("Squat", "Legs"));
         exerciseLibrary.addExercise(new Exercise("Leg Press", "Legs"));
         exerciseLibrary.addExercise(new Exercise("Leg Extention", "Legs"));
         exerciseLibrary.addExercise(new Exercise("Leg Curl", "Legs"));
-
         personalExerciseList = new PersonalExerciseList();
         input = new Scanner(System.in);
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -83,7 +77,7 @@ public class WorkoutPlannerApp {
             displayMenu();
             command = input.next();
             command = command.toLowerCase();
-            if (command.equals("6")) {
+            if (command.equals("7")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -123,7 +117,7 @@ public class WorkoutPlannerApp {
             addCustomExercise();
         } else if (command.equals("5")) {
             removeExerciseFromPersonalWorkout();
-        }else if (command.equals("6")) {
+        } else if (command.equals("6")) {
             savePersonalExerciseList();
         } else {
             System.out.println("Try to make the right selection.");
@@ -189,7 +183,7 @@ public class WorkoutPlannerApp {
         if (choice >= 1 && choice <= matchingExercises.size()) {
             Exercise selectedExercise = matchingExercises.get(choice - 1);
             personalExerciseList.addExercise(selectedExercise);
-            System.out.println(selectedExercise.getName() + "is added to your workout.");
+            System.out.println(selectedExercise.getName() + " is added to your workout.");
         } else {
             System.out.println("Try to make the right selection.");
         }
