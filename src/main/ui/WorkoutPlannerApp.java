@@ -7,10 +7,16 @@ import model.ExerciseLibrary;
 import model.PersonalExerciseList;
 import java.util.ArrayList;
 import model.Exercise;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 
 // The Application for the Workout Planner
 @ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerApp {
+    private static final String JSON_STORE = "./data/workout.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private ExerciseLibrary exerciseLibrary;
     private PersonalExerciseList personalExerciseList;
     private Scanner input;
