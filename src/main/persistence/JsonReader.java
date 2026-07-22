@@ -27,7 +27,8 @@ public class JsonReader {
      */
     public PersonalExerciseList read() throws IOException {
         String jsonData = readFile(source);
-        return null;
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parsePersonalExerciseList(jsonObject);
     }
 
     /*
@@ -45,6 +46,7 @@ public class JsonReader {
      * EFFECTS: it parses an exercise list form JSON Object and returns it
      */
     private PersonalExerciseList parsePersonalExerciseList(JSONObject jsonObject) {
-        return null;
+        PersonalExerciseList personalList = new PersonalExerciseList();
+        return personalList;
     }
 }
