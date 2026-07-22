@@ -7,6 +7,7 @@ import model.ExerciseLibrary;
 import model.PersonalExerciseList;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import model.Exercise;
 import persistence.JsonReader;
@@ -260,6 +261,11 @@ public class WorkoutPlannerApp {
      * EFFECTS: Loads the list from a file
      */
     private void loadPersonalExerciseList() {
-        // s
+        try {
+            personalExerciseList = jsonReader.read();
+            System.out.println("Your workout is loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to load your data from " + JSON_STORE);
+        }
     }
 }
