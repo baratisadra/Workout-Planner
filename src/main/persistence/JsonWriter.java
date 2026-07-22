@@ -3,6 +3,7 @@ package persistence;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import model.PersonalExerciseList;
 
 // Represents a writer whom writes an exercise list to JSON file
 // The following code is enspired by the JsonSerializationDemo
@@ -26,5 +27,13 @@ public class JsonWriter {
      */
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: writes the JSON representatio of the personalList to a file
+     */
+    public void write(PersonalExerciseList personalList) {
+        
     }
 }
