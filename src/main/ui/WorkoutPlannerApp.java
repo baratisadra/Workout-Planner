@@ -64,6 +64,8 @@ public class WorkoutPlannerApp {
 
         personalExerciseList = new PersonalExerciseList();
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     /*
