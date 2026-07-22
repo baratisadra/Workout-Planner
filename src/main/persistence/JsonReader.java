@@ -47,6 +47,15 @@ public class JsonReader {
      */
     private PersonalExerciseList parsePersonalExerciseList(JSONObject jsonObject) {
         PersonalExerciseList personalList = new PersonalExerciseList();
+        addExercise(personalList, jsonObject);
         return personalList;
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: parses hte exercises from JSON object and then adds them the the exrcise list
+     */
+    private void addExercise(PersonalExerciseList personalList, JSONObject jsonObject) {
+
     }
 }
