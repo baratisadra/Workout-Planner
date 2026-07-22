@@ -1,6 +1,8 @@
 package persistence;
 
 import java.io.IOException;
+
+import model.Exercise;
 import model.PersonalExerciseList;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -70,6 +72,9 @@ public class JsonReader {
      * EFFECTS: Parses a single exercise from a JSON Object, then adds it to the exrcise list
      */
     private void addExercise(PersonalExerciseList personalList, JSONObject jsonObject) {
-
+        String name = jsonObject.getString("name");
+        String muscleGroup = jsonObject.getString("muscleGroup");
+        Exercise exercise = new Exercise(name, muscleGroup);
+        personalList.addExercise(exercise);
     }
 }
