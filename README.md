@@ -18,3 +18,5 @@
 - As a user, I want to be able to view the exercises in my personal exercise list.
 - As a user, I want to be able to view recommended exercises for my chosen muscle group.
 - As a user, I want to be able to remove an exercise from my personal exercise list.
+- As a user, I want to be able to save my personal exercise list to file.
+- As a user, I want to be able to reload my personal exercise list when I open the application at another time if I wanted to.
