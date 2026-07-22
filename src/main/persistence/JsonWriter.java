@@ -1,5 +1,6 @@
 package persistence;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
@@ -24,6 +25,6 @@ public class JsonWriter {
      *  the destination file is not opening for writing
      */
     public void open() throws FileNotFoundException {
-        //s
+        writer = new PrintWriter(new File(destination));
     }
 }
