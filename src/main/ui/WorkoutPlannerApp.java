@@ -1,12 +1,15 @@
 package ui;
 
 import java.util.Scanner;
+
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.ExerciseLibrary;
 import model.PersonalExerciseList;
 import java.util.ArrayList;
 import model.Exercise;
 
 // The Application for the Workout Planner
+@ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerApp {
     private ExerciseLibrary exerciseLibrary;
     private PersonalExerciseList personalExerciseList;

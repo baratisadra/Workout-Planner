@@ -2,10 +2,11 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+@ExcludeFromJacocoGeneratedReport
 public class PersonalExerciseListTest {
     private PersonalExerciseList testList;
     private Exercise exercise1;
