@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents an exercise, its name and its target muscle group
-public class Exercise {
+public class Exercise implements Writable {
     private String name;
     private String muscleGroup;
 
@@ -22,6 +25,14 @@ public class Exercise {
     // EFFECTS: returns the muscle group that the excercise is targeting
     public String getMuscleGroup() {
         return muscleGroup;
+    }
+
+    /*
+     * EFFECTS: returns this below exercise as an object of JSON
+     */
+    @Override
+    public JSONObject toJson() {
+        return null;
     }
 
 }
