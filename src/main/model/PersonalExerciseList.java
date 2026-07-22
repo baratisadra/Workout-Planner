@@ -1,9 +1,12 @@
 package model;
 
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 // The user's personal list of exercises
-public class PersonalExerciseList {
+public class PersonalExerciseList implements Writable {
     private ArrayList<Exercise> exercises;
 
     // EFFECTS: Constructing an empty list of user's personal list of exercises
@@ -32,5 +35,13 @@ public class PersonalExerciseList {
      */
     public void removeExercise(Exercise exercise) {
         exercises.remove(exercise);
+    }
+
+    /*
+     * EFFECTS: returns this below personal exercise list as an object of JSON
+     */
+    @Override
+    public JSONObject toJson() {
+        return null;
     }
 }
