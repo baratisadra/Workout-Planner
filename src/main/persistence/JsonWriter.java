@@ -3,6 +3,9 @@ package persistence;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+
+import org.json.JSONObject;
+
 import model.PersonalExerciseList;
 
 // Represents a writer whom writes an exercise list to JSON file
@@ -34,6 +37,15 @@ public class JsonWriter {
      * EFFECTS: writes the JSON representatio of the personalList to a file
      */
     public void write(PersonalExerciseList personalList) {
-        
+        JSONObject json = personalList.toJson();
+        saveToFile(json.toString(TAB));
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: wrties the give JSON to file
+     */
+    private void saveToFile(String json) {
+        // s
     }
 }
