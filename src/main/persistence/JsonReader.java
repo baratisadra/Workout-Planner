@@ -1,8 +1,11 @@
 package persistence;
 
 import java.io.IOException;
-
 import model.PersonalExerciseList;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 // Represents areader that reads a personal exercise list from the JSON data
 // That is store in a file. This code is based on the 
@@ -30,6 +33,10 @@ public class JsonReader {
      * EFFECTS: reads the source file as a String and returns it
      */
     private String readFile(String source) throws IOException {
-        return null;
+        StringBuilder contentBuilder = new StringBuilder();
+        try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
+            stream.forEach(contentBuilder::append);
+        }
+        return contentBuilder.toString();
     }
 }
