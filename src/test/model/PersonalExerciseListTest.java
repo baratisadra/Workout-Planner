@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 @ExcludeFromJacocoGeneratedReport
 public class PersonalExerciseListTest {
@@ -49,5 +52,18 @@ public class PersonalExerciseListTest {
         assertEquals(exercise2, testList.getExercises().get(0));
 
 
+    }
+
+    @Test 
+    void testToJson() {
+        testList.addExercise(exercise1);
+        testList.addExercise(exercise2);
+        JSONObject json = testList.toJson();
+        JSONArray exercises = json.getJSONArray("exercises");
+        assertEquals(2, exercises.length());
+        assertEquals("Lat Pulldown", exercises.getJSONObject(0).getString("name"));
+        assertEquals("Back", exercises.getJSONObject(0).getString("muscleGroup"));
+        assertEquals("Shoulder Press", exercises.getJSONObject(1).getString("name"));
+        assertEquals("Shoulders", exercises.getJSONObject(1).getString("muscleGroup"));
     }
 }
