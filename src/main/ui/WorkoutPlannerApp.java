@@ -254,4 +254,12 @@ public class WorkoutPlannerApp {
             System.out.println("Unable to write to the file" + JSON_STORE);
         }
     }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: Loads the list from a file
+     */
+    private void loadPersonalExerciseList() {
+        // s
+    }
 }
