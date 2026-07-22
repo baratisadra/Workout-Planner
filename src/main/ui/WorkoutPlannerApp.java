@@ -34,35 +34,76 @@ public class WorkoutPlannerApp {
     /*
      * MODIFIES: this
      * EFFECTS: initializes the scanner,
-     *                      the personal exercise list
-     *                      and the exercise library
+     *                      the personal exercise list,
+     *                      the exercise library,
+     *                      and the JSON writer and reader
      */
     private void initialize() {
         exerciseLibrary = new ExerciseLibrary();
-        exerciseLibrary.addExercise(new Exercise("Lat Pulldown", "Back"));
-        exerciseLibrary.addExercise(new Exercise("Barbell row", "Back"));
-        exerciseLibrary.addExercise(new Exercise("T-Row", "Back"));
-        exerciseLibrary.addExercise(new Exercise("Pullover", "Back"));
-        exerciseLibrary.addExercise(new Exercise("Bench Press", "Chest"));
-        exerciseLibrary.addExercise(new Exercise("Incline press", "Chest"));
-        exerciseLibrary.addExercise(new Exercise("Decline Press", "Chest"));
-        exerciseLibrary.addExercise(new Exercise("Fly", "Chest"));
-        exerciseLibrary.addExercise(new Exercise("Shoulder Press", "Shoulders"));
-        exerciseLibrary.addExercise(new Exercise("Lateral Raise", "Shoulders"));
-        exerciseLibrary.addExercise(new Exercise("Reverse Raise", "Shoulders"));
-        exerciseLibrary.addExercise(new Exercise("Front Raise", "Shoulders"));
-        exerciseLibrary.addExercise(new Exercise("Bicep Curl", "Arms"));
-        exerciseLibrary.addExercise(new Exercise("Tricep Extention", "Arms"));
-        exerciseLibrary.addExercise(new Exercise("OverHead Extention", "Arms"));
-        exerciseLibrary.addExercise(new Exercise("Incline Curl", "Arms"));
-        exerciseLibrary.addExercise(new Exercise("Squat", "Legs"));
-        exerciseLibrary.addExercise(new Exercise("Leg Press", "Legs"));
-        exerciseLibrary.addExercise(new Exercise("Leg Extention", "Legs"));
-        exerciseLibrary.addExercise(new Exercise("Leg Curl", "Legs"));
+        addBackExercises();
+        addChestExercises();
+        addShoulderExercises();
+        addArmExercises();
+        addLegExercises();
         personalExerciseList = new PersonalExerciseList();
         input = new Scanner(System.in);
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: adds the recommended back exercises to the exercise library
+     */
+    private void addBackExercises() {
+        exerciseLibrary.addExercise(new Exercise("Lat Pulldown", "Back"));
+        exerciseLibrary.addExercise(new Exercise("Barbell row", "Back"));
+        exerciseLibrary.addExercise(new Exercise("T-Row", "Back"));
+        exerciseLibrary.addExercise(new Exercise("Pullover", "Back"));
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: adds the recommended chest exercises to the exercise library
+     */
+    private void addChestExercises() {
+        exerciseLibrary.addExercise(new Exercise("Bench Press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Incline press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Decline Press", "Chest"));
+        exerciseLibrary.addExercise(new Exercise("Fly", "Chest"));
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: adds the recommended sohulder exercises to the exercise library
+     */
+    private void addShoulderExercises() {
+        exerciseLibrary.addExercise(new Exercise("Shoulder Press", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Lateral Raise", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Reverse Raise", "Shoulders"));
+        exerciseLibrary.addExercise(new Exercise("Front Raise", "Shoulders"));
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: adds the recommended arm exercises to the exercise library
+     */
+    private void addArmExercises() {
+        exerciseLibrary.addExercise(new Exercise("Bicep Curl", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("Tricep Extention", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("OverHead Extention", "Arms"));
+        exerciseLibrary.addExercise(new Exercise("Incline Curl", "Arms"));
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: adds the recommended leg exercises to the exercise library
+     */
+    private void addLegExercises() {
+        exerciseLibrary.addExercise(new Exercise("Squat", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Press", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Extention", "Legs"));
+        exerciseLibrary.addExercise(new Exercise("Leg Curl", "Legs"));
     }
 
     /*
