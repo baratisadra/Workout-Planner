@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+import org.json.JSONObject;
 
 // Represents areader that reads a personal exercise list from the JSON data
 // That is store in a file. This code is based on the 
@@ -38,5 +39,12 @@ public class JsonReader {
             stream.forEach(contentBuilder::append);
         }
         return contentBuilder.toString();
+    }
+
+    /*
+     * EFFECTS: it parses an exercise list form JSON Object and returns it
+     */
+    private PersonalExerciseList parsePersonalExerciseList(JSONObject jsonObject) {
+        return null;
     }
 }
