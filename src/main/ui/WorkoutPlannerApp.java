@@ -99,11 +99,13 @@ public class WorkoutPlannerApp {
         System.out.println("");
         System.out.println("Workout Planner");
         System.out.println("-----------------------");
-        System.out.println("1. View recommended exercises");
-        System.out.println("2. View my workout");
-        System.out.println("3. Add costum exercise to my workout");
-        System.out.println("4. Remove exercise from my workout");
-        System.out.println("5. Quit");
+        System.out.println("1. Load my workout");
+        System.out.println("2. View recommended exercises");
+        System.out.println("3. View my workout");
+        System.out.println("4. Add costum exercise to my workout");
+        System.out.println("5. Remove exercise from my workout");
+        System.out.println("6. Save my workout");
+        System.out.println("7. Quit");
     }
 
     /*
