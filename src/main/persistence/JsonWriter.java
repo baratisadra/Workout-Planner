@@ -1,5 +1,6 @@
 package persistence;
 
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 // Represents a writer whom writes an exercise list to JSON file
@@ -15,5 +16,14 @@ public class JsonWriter {
      */
     public JsonWriter(String destination) {
         this.destination = destination;
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: opens the writer, throws FileNotFoundException if
+     *  the destination file is not opening for writing
+     */
+    public void open() throws FileNotFoundException {
+        //s
     }
 }
