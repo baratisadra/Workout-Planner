@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 // Represents areader that reads a personal exercise list from the JSON data
@@ -56,7 +58,11 @@ public class JsonReader {
      * EFFECTS: parses hte exercises from JSON object and then adds them the the exrcise list
      */
     private void addExercises(PersonalExerciseList personalList, JSONObject jsonObject) {
-
+        JSONArray jsonArray = jsonObject.getJSONArray("exercises");
+        for (Object json : jsonArray) {
+            JSONObject nextExercise = (JSONObject) json;
+            addExercise(personalList, nextExercise);
+        }
     }
 
     /*
@@ -64,6 +70,6 @@ public class JsonReader {
      * EFFECTS: Parses a single exercise from a JSON Object, then adds it to the exrcise list
      */
     private void addExercise(PersonalExerciseList personalList, JSONObject jsonObject) {
-        
+
     }
 }
