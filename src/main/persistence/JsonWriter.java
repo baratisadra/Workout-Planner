@@ -46,7 +46,7 @@ public class JsonWriter {
      * EFFECTS: has the responsibility to close the writer
      */
     public void close() {
-        // s
+        writer.close();
     }
 
     /*
@@ -54,6 +54,6 @@ public class JsonWriter {
      * EFFECTS: wrties the give JSON to file
      */
     private void saveToFile(String json) {
-        // s
+        writer.print(json);
     }
 }
