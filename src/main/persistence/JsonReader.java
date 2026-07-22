@@ -11,7 +11,7 @@ public class JsonReader {
     private String source;
 
     /*
-     * EFFECTS: 
+     * EFFECTS: Constructs a reader that reade from the source file
      */
     public JsonReader(String source) {
         this.source = source;
@@ -22,6 +22,14 @@ public class JsonReader {
      *          Throws IOException if error occurs.
      */
     public PersonalExerciseList read() throws IOException {
+        String jsonData = readFile(source);
+        return null;
+    }
+
+    /*
+     * EFFECTS: reads the source file as a String and returns it
+     */
+    private String readFile(String source) throws IOException {
         return null;
     }
 }
