@@ -5,6 +5,8 @@ import java.util.Scanner;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.ExerciseLibrary;
 import model.PersonalExerciseList;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import model.Exercise;
 import persistence.JsonReader;
@@ -243,6 +245,13 @@ public class WorkoutPlannerApp {
      * EFFECTS: saves the personal exercise list to a file
      */
     private void savePersonalExerciseList() {
-        // s
+        try {
+            jsonWriter.open();
+            jsonWriter.write(personalExerciseList);
+            jsonWriter.close();
+            System.out.println("Your workout is save to" + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to the file" + JSON_STORE);
+        }
     }
 }
