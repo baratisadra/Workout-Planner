@@ -32,7 +32,10 @@ public class Exercise implements Writable {
      */
     @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("muscleGroup", muscleGroup);
+        return json;
     }
 
 }
