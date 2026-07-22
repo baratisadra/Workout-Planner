@@ -43,6 +43,14 @@ public class JsonWriter {
 
     /*
      * MODIFIES: this
+     * EFFECTS: has the responsibility to close the writer
+     */
+    public void close() {
+        // s
+    }
+
+    /*
+     * MODIFIES: this
      * EFFECTS: wrties the give JSON to file
      */
     private void saveToFile(String json) {
