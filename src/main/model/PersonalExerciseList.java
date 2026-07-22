@@ -42,6 +42,15 @@ public class PersonalExerciseList implements Writable {
      */
     @Override
     public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("exercises", exercisesToJson());
+        return json;
+    }
+
+    /*
+     * EFFECTS: Returns the exercises in this personal exercises list as ar array of JSON
+     */
+    private JSONArray exercisesToJson() {
         return null;
     }
 }
