@@ -238,4 +238,11 @@ public class WorkoutPlannerApp {
             }
         }
     }
+
+    /*
+     * EFFECTS: saves the personal exercise list to a file
+     */
+    private void savePersonalExerciseList() {
+        // s
+    }
 }
