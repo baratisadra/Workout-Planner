@@ -20,3 +20,24 @@
 - As a user, I want to be able to remove an exercise from my personal exercise list.
 - As a user, I want to be able to save my personal exercise list to file.
 - As a user, I want to be able to reload my personal exercise list when I open the application at another time if I wanted to.
+
+## Instructions for End User
+
+- You can view the panel that displays the exercises in the personal workout by clicking the
+  "view my workout" button .
+- You can generate the first required action that is adding exercises to the workout list
+  by clicking "View Recommended Exercises", selecting the preferred muscle group, selecting
+  the chosen exercise and clicking "Add Selected Exercise".
+- You can generate the second required action by clicking "Add custom exercises", choosing
+  the muscle group, entering the exercise name, and clicking "Add exercise".
+- You can generate the third required action by selecting an exercise in you exercise list, 
+  and clicking the "Remove exercise" button.
+- You can locate the visual component on the welcome screen.
+- You can save the state of the personal workout list by clicking the "Save my workout" 
+  button.
+- You can load the state of the personal workout list by clicking the "Load my workout" 
+  button.
+
+## Acknowledgements
+
+- The picture used as the welcome screen image was generated using ChatGPT image generation
