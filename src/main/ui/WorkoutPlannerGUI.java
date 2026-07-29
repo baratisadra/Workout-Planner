@@ -1,5 +1,6 @@
 package ui;
 
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -9,6 +10,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
@@ -101,6 +103,7 @@ public class WorkoutPlannerGUI extends JFrame {
         viewWorkouButton = new JButton("View my workout");
         viewWorkouButton.addActionListener(e -> showPersonalWorkout());
         addCustomExerciseButton = new JButton("Add custom exercises");
+        addCustomExerciseButton.addActionListener(e -> showAddCustomExercise());
         removeExerciseButton = new JButton("Remove exercise");
         saveButton = new JButton("Save my workout");
         loadButton = new JButton("Load my workout");
@@ -223,6 +226,34 @@ public class WorkoutPlannerGUI extends JFrame {
         }
         displayPanel.removeAll();
         displayPanel.add(new JScrollPane(personalWorkoutList), BorderLayout.CENTER);
+        displayPanel.revalidate();
+        displayPanel.repaint();
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: showing the panel for adding a custom exercise
+     */
+    private void showAddCustomExercise() {
+        displayPanel.removeAll();
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JTextField nameField = new JTextField();
+        String[] muscleGroups = {"Back", "Chest", "Shoulders", "Arms", "Legs"};
+        JComboBox<String> muscleGroupBox = new JComboBox<>(muscleGroups);
+        JButton addButton = new JButton("Add exercise");
+        addButton.addActionListener(e -> {
+            Exercise exercise = new Exercise(
+                nameField.getText(), (String) muscleGroupBox.getSelectedItem());
+            personalExerciseList.addExercise(exercise);
+            JOptionPane.showMessageDialog(this, "Exercise was added successfully.");
+        });
+        panel.add(new JLabel("Exercise name"));
+        panel.add(nameField);
+        panel.add(new JLabel("Muscle group"));
+        panel.add(muscleGroupBox);
+        panel.add(addButton);
+        displayPanel.add(panel, BorderLayout.CENTER);
         displayPanel.revalidate();
         displayPanel.repaint();
     }
