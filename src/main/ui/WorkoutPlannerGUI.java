@@ -1,9 +1,12 @@
 package ui;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
@@ -33,6 +36,8 @@ public class WorkoutPlannerGUI extends JFrame {
     private JButton saveButton;
     private JButton loadButton;
     private JPanel displayPanel;
+    private DefaultListModel<String> recommendedExerciseModel;
+    private JList<String> recommendedExerciseList; 
 
     /*
      * EFFECTS: Constructs the Workout Planner GUI.
@@ -46,6 +51,7 @@ public class WorkoutPlannerGUI extends JFrame {
         initializeMainPanel();
         initializeControlPanel();
         initializeDisplayPanel();
+        initializeRecommendedExerciseList();
         setVisible(true);
     }
 
@@ -109,6 +115,27 @@ public class WorkoutPlannerGUI extends JFrame {
         JLabel welcomeLabel = new JLabel("Welcome to Workout Planner", JLabel.CENTER);
         displayPanel.add(welcomeLabel, BorderLayout.CENTER);
         mainPanel.add(displayPanel, BorderLayout.CENTER);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: initializes the list that displays the recommended exercises
+     */
+    private void initializeRecommendedExerciseList() {
+        recommendedExerciseModel = new DefaultListModel<>();
+        recommendedExerciseList = new JList<>(recommendedExerciseModel);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: shows the recommended exercise list in the display panel
+     */
+    private void showRecommendedExerciseList() {
+        displayPanel.removeAll();
+        JScrollPane scrollPane = new JScrollPane(recommendedExerciseList);
+        displayPanel.add(scrollPane, BorderLayout.CENTER);
+        displayPanel.revalidate();
+        displayPanel.repaint();
     }
 
     /*
