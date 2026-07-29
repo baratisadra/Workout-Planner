@@ -41,6 +41,8 @@ public class WorkoutPlannerGUI extends JFrame {
     private JPanel displayPanel;
     private DefaultListModel<String> recommendedExerciseModel;
     private JList<String> recommendedExerciseList; 
+    private DefaultListModel<String> personalWorkoutModel;
+    private JList<String> personalWorkoutList;
 
     /*
      * EFFECTS: Constructs the Workout Planner GUI.
@@ -55,6 +57,7 @@ public class WorkoutPlannerGUI extends JFrame {
         initializeControlPanel();
         initializeDisplayPanel();
         initializeRecommendedExerciseList();
+        initializePersonalWorkoutList();
         setVisible(true);
     }
 
@@ -96,6 +99,7 @@ public class WorkoutPlannerGUI extends JFrame {
         viewRecommendedButton = new JButton("View Recommended Exercises");
         viewRecommendedButton.addActionListener(e -> showRecommendedExercises());
         viewWorkouButton = new JButton("View my workout");
+        viewWorkouButton.addActionListener(e -> showPersonalWorkout());
         addCustomExerciseButton = new JButton("Add custom exercises");
         removeExerciseButton = new JButton("Remove exercise");
         saveButton = new JButton("Save my workout");
@@ -195,6 +199,32 @@ public class WorkoutPlannerGUI extends JFrame {
             JOptionPane.showMessageDialog(
                 this, selectedExercise.getName() + " was added to your workout.");
         }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: initialized the list that is used to display the personal list
+     */
+    private void initializePersonalWorkoutList() {
+        personalWorkoutModel = new DefaultListModel<>();
+        personalWorkoutList = new JList<>(personalWorkoutModel);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: shows the exercises in the personal list
+     */
+    private void showPersonalWorkout() {
+        personalWorkoutModel.clear();
+        for (Exercise exercise : personalExerciseList.getExercises()) {
+            personalWorkoutModel.addElement(
+                    exercise.getName() + " - " + exercise.getMuscleGroup()
+            );
+        }
+        displayPanel.removeAll();
+        displayPanel.add(new JScrollPane(personalWorkoutList), BorderLayout.CENTER);
+        displayPanel.revalidate();
+        displayPanel.repaint();
     }
 
     /*
