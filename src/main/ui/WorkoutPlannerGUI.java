@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
@@ -149,12 +150,16 @@ public class WorkoutPlannerGUI extends JFrame {
         displayPanel.removeAll();
         String[] muscleGroups = {"Back", "Chest", "Shoulders", "Arms", "Legs"};
         JComboBox<String> muscleGroupSelector = new JComboBox<>(muscleGroups);
+        JButton addRecommendedButton = new JButton("Add selected Exercise");
+        addRecommendedButton.addActionListener(
+            e -> addRecommendedExercise(muscleGroupSelector));
         muscleGroupSelector.addActionListener(e -> {
             String muscleGroup = (String) muscleGroupSelector.getSelectedItem();
             updateRecommendedExerciseList(muscleGroup);
         });
         displayPanel.add(muscleGroupSelector, BorderLayout.NORTH);
         displayPanel.add(new JScrollPane(recommendedExerciseList), BorderLayout.CENTER);
+        displayPanel.add(addRecommendedButton, BorderLayout.SOUTH);
         updateRecommendedExerciseList("Back");
         displayPanel.revalidate();
         displayPanel.repaint();
@@ -170,6 +175,25 @@ public class WorkoutPlannerGUI extends JFrame {
                 exerciseLibrary.getExercisesForMuscleGroup(muscleGroup);
         for (Exercise exercise : exercises) {
             recommendedExerciseModel.addElement(exercise.getName());
+        }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds the selected workout hte the personal list
+     */
+    private void addRecommendedExercise(JComboBox<String> muscleGroupSelector) {
+        int selectedIndex = recommendedExerciseList.getSelectedIndex();
+        if (selectedIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Please select as exercise.");
+        } else {
+            String muscleGroup = (String) muscleGroupSelector.getSelectedItem();
+            ArrayList<Exercise> exercises = 
+                    exerciseLibrary.getExercisesForMuscleGroup(muscleGroup);
+            Exercise selectedExercise = exercises.get(selectedIndex);
+            personalExerciseList.addExercise(selectedExercise);
+            JOptionPane.showMessageDialog(
+                this, selectedExercise.getName() + " was added to your workout.");
         }
     }
 
