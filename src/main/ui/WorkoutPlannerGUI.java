@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.Exercise;
 import model.ExerciseLibrary;
@@ -105,6 +103,7 @@ public class WorkoutPlannerGUI extends JFrame {
         addCustomExerciseButton = new JButton("Add custom exercises");
         addCustomExerciseButton.addActionListener(e -> showAddCustomExercise());
         removeExerciseButton = new JButton("Remove exercise");
+        removeExerciseButton.addActionListener(e -> removeSelectedExercise());
         saveButton = new JButton("Save my workout");
         loadButton = new JButton("Load my workout");
         controlPanel.add(loadButton);
@@ -256,6 +255,22 @@ public class WorkoutPlannerGUI extends JFrame {
         displayPanel.add(panel, BorderLayout.CENTER);
         displayPanel.revalidate();
         displayPanel.repaint();
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: removing the selected exercise from the personal list
+     */
+    private void removeSelectedExercise() {
+        int selectedIndex = personalWorkoutList.getSelectedIndex();
+        if (selectedIndex == -1) {
+            JOptionPane.showMessageDialog(this, "Select an exercise to remove.");
+            return;
+        }
+        Exercise exercise = personalExerciseList.getExercises().get(selectedIndex);
+        personalExerciseList.removeExercise(exercise);
+        showPersonalWorkout();
+        JOptionPane.showMessageDialog(this, "Exercise removed successfully.");
     }
 
     /*
