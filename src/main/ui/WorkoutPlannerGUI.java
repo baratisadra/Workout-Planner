@@ -19,6 +19,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 @ExcludeFromJacocoGeneratedReport
@@ -105,6 +106,7 @@ public class WorkoutPlannerGUI extends JFrame {
         removeExerciseButton = new JButton("Remove exercise");
         removeExerciseButton.addActionListener(e -> removeSelectedExercise());
         saveButton = new JButton("Save my workout");
+        saveButton.addActionListener(e -> savePersonalExerciseList());
         loadButton = new JButton("Load my workout");
         controlPanel.add(loadButton);
         controlPanel.add(viewRecommendedButton);
@@ -271,6 +273,21 @@ public class WorkoutPlannerGUI extends JFrame {
         personalExerciseList.removeExercise(exercise);
         showPersonalWorkout();
         JOptionPane.showMessageDialog(this, "Exercise removed successfully.");
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: saves the personal workout list to the JSON file
+     */
+    private void savePersonalExerciseList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(personalExerciseList);
+            jsonWriter.close();
+            JOptionPane.showMessageDialog(this, "Your Workout saved successfully.");
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Unable to save your Workout.");
+        }
     }
 
     /*

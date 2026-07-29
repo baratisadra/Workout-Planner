@@ -1,10 +1,4 @@
-{"exercises": [
-    {
-        "muscleGroup": "Back",
-        "name": "Barbell row"
-    },
-    {
-        "muscleGroup": "chest",
-        "name": "chest"
-    }
-]}
+{"exercises": [{
+    "muscleGroup": "Back",
+    "name": "T-Row"
+}]}
