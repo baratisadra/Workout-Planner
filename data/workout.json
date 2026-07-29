@@ -1,10 +1,10 @@
 {"exercises": [
     {
-        "muscleGroup": "Chest",
-        "name": "Incline press"
+        "muscleGroup": "Back",
+        "name": "Barbell row"
     },
     {
-        "muscleGroup": "dddd",
-        "name": "dddd"
+        "muscleGroup": "chest",
+        "name": "chest"
     }
 ]}
