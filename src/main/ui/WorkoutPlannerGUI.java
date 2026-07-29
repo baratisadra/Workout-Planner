@@ -1,6 +1,7 @@
 package ui;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.Exercise;
@@ -8,6 +9,7 @@ import model.ExerciseLibrary;
 import model.PersonalExerciseList;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import java.awt.BorderLayout;
 
 @ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerGUI extends JFrame {
@@ -18,6 +20,7 @@ public class WorkoutPlannerGUI extends JFrame {
     private static final String JSON_STORE = "./data/workout.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private JPanel mainPanel;
 
     /*
      * EFFECTS: Constructs the Workout Planner GUI.
@@ -28,6 +31,7 @@ public class WorkoutPlannerGUI extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        initializeMainPanel();
         setVisible(true);
     }
 
@@ -47,6 +51,16 @@ public class WorkoutPlannerGUI extends JFrame {
         addShoulderExercises();
         addArmExercises();
         addLegExercises();
+    }
+
+    /*
+     * MODIFES: this
+     * EFFECTS: creates the main pane that is used to hold the components
+     */
+    private void initializeMainPanel() {
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        add(mainPanel);
     }
 
     /*
