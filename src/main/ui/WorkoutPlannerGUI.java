@@ -1,5 +1,6 @@
 package ui;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -10,6 +11,7 @@ import model.PersonalExerciseList;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 @ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerGUI extends JFrame {
@@ -21,6 +23,13 @@ public class WorkoutPlannerGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
     private JPanel mainPanel;
+    private JPanel controlPanel;
+    private JButton viewRecommendedButton;
+    private JButton viewWorkouButton;
+    private JButton addCustomExerciseButton;
+    private JButton removeExerciseButton;
+    private JButton saveButton;
+    private JButton loadButton;
 
     /*
      * EFFECTS: Constructs the Workout Planner GUI.
@@ -32,6 +41,7 @@ public class WorkoutPlannerGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         initializeMainPanel();
+        initializeControlPanel();
         setVisible(true);
     }
 
@@ -61,6 +71,28 @@ public class WorkoutPlannerGUI extends JFrame {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         add(mainPanel);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: initialized the control panel with the controls
+     */
+    private void initializeControlPanel() {
+        controlPanel = new JPanel();
+        controlPanel.setLayout(new GridLayout(0,1));
+        viewRecommendedButton = new JButton("View Recommended Exercises");
+        viewWorkouButton = new JButton("View my workout");
+        addCustomExerciseButton = new JButton("Add custom exercises");
+        removeExerciseButton = new JButton("Remove exercise");
+        saveButton = new JButton("Save my workout");
+        loadButton = new JButton("Load my workout");
+        controlPanel.add(loadButton);
+        controlPanel.add(viewRecommendedButton);
+        controlPanel.add(viewWorkouButton);
+        controlPanel.add(addCustomExerciseButton);
+        controlPanel.add(removeExerciseButton);
+        controlPanel.add(saveButton);
+        mainPanel.add(controlPanel, BorderLayout.WEST);
     }
 
     /*
