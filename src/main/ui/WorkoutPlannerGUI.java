@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -17,6 +18,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 @ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerGUI extends JFrame {
@@ -91,6 +93,7 @@ public class WorkoutPlannerGUI extends JFrame {
         controlPanel = new JPanel();
         controlPanel.setLayout(new GridLayout(0,1));
         viewRecommendedButton = new JButton("View Recommended Exercises");
+        viewRecommendedButton.addActionListener(e -> showRecommendedExercises());
         viewWorkouButton = new JButton("View my workout");
         addCustomExerciseButton = new JButton("Add custom exercises");
         removeExerciseButton = new JButton("Remove exercise");
@@ -136,6 +139,38 @@ public class WorkoutPlannerGUI extends JFrame {
         displayPanel.add(scrollPane, BorderLayout.CENTER);
         displayPanel.revalidate();
         displayPanel.repaint();
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: displays the recommended exercise list
+     */
+    private void showRecommendedExercises() {
+        displayPanel.removeAll();
+        String[] muscleGroups = {"Back", "Chest", "Shoulders", "Arms", "Legs"};
+        JComboBox<String> muscleGroupSelector = new JComboBox<>(muscleGroups);
+        muscleGroupSelector.addActionListener(e -> {
+            String muscleGroup = (String) muscleGroupSelector.getSelectedItem();
+            updateRecommendedExerciseList(muscleGroup);
+        });
+        displayPanel.add(muscleGroupSelector, BorderLayout.NORTH);
+        displayPanel.add(new JScrollPane(recommendedExerciseList), BorderLayout.CENTER);
+        updateRecommendedExerciseList("Back");
+        displayPanel.revalidate();
+        displayPanel.repaint();
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: Updates the recommended list as user changes the muscleGroup
+     */
+    private void updateRecommendedExerciseList(String muscleGroup) {
+        recommendedExerciseModel.clear();
+        ArrayList<Exercise> exercises = 
+                exerciseLibrary.getExercisesForMuscleGroup(muscleGroup);
+        for (Exercise exercise : exercises) {
+            recommendedExerciseModel.addElement(exercise.getName());
+        }
     }
 
     /*
