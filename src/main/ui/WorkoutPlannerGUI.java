@@ -146,18 +146,6 @@ public class WorkoutPlannerGUI extends JFrame {
 
     /*
      * MODIFIES: this
-     * EFFECTS: shows the recommended exercise list in the display panel
-     */
-    private void showRecommendedExerciseList() {
-        displayPanel.removeAll();
-        JScrollPane scrollPane = new JScrollPane(recommendedExerciseList);
-        displayPanel.add(scrollPane, BorderLayout.CENTER);
-        displayPanel.revalidate();
-        displayPanel.repaint();
-    }
-
-    /*
-     * MODIFIES: this
      * EFFECTS: displays the recommended exercise list
      */
     private void showRecommendedExercises() {
@@ -166,7 +154,7 @@ public class WorkoutPlannerGUI extends JFrame {
         JComboBox<String> muscleGroupSelector = new JComboBox<>(muscleGroups);
         JButton addRecommendedButton = new JButton("Add selected Exercise");
         addRecommendedButton.addActionListener(
-            e -> addRecommendedExercise(muscleGroupSelector));
+                        e -> addRecommendedExercise(muscleGroupSelector));
         muscleGroupSelector.addActionListener(e -> {
             String muscleGroup = (String) muscleGroupSelector.getSelectedItem();
             updateRecommendedExerciseList(muscleGroup);
@@ -207,7 +195,8 @@ public class WorkoutPlannerGUI extends JFrame {
             Exercise selectedExercise = exercises.get(selectedIndex);
             personalExerciseList.addExercise(selectedExercise);
             JOptionPane.showMessageDialog(
-                this, selectedExercise.getName() + " was added to your workout.");
+                                this,
+                                 selectedExercise.getName() + " was added to your workout.");
         }
     }
 
@@ -251,7 +240,8 @@ public class WorkoutPlannerGUI extends JFrame {
         JButton addButton = new JButton("Add exercise");
         addButton.addActionListener(e -> {
             Exercise exercise = new Exercise(
-                nameField.getText(), (String) muscleGroupBox.getSelectedItem());
+                    nameField.getText(),
+                     (String) muscleGroupBox.getSelectedItem());
             personalExerciseList.addExercise(exercise);
             JOptionPane.showMessageDialog(this, "Exercise was added successfully.");
         });

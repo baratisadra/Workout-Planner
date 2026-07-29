@@ -16,26 +16,26 @@ public class PersonalExerciseListTest {
     private Exercise exercise2;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         testList = new PersonalExerciseList();
         exercise1 = new Exercise("Lat Pulldown", "Back");
         exercise2 = new Exercise("Shoulder Press", "Shoulders");
     }
     
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertTrue(testList.getExercises().isEmpty());
     }
 
     @Test
-    void testAddExercise(){
+    void testAddExercise() {
         testList.addExercise(exercise1);
         assertEquals(1, testList.getExercises().size());
         assertEquals(exercise1, testList.getExercises().get(0));
     }
 
     @Test
-    void testAddFewExercises(){
+    void testAddFewExercises() {
         testList.addExercise(exercise1);
         testList.addExercise(exercise2);
         assertEquals(2, testList.getExercises().size());
@@ -44,7 +44,7 @@ public class PersonalExerciseListTest {
     }
 
     @Test
-    void testRemoveExercise(){
+    void testRemoveExercise() {
         testList.addExercise(exercise1);
         testList.addExercise(exercise2);
         testList.removeExercise(exercise1);

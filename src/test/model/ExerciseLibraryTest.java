@@ -11,12 +11,12 @@ public class ExerciseLibraryTest {
     private ExerciseLibrary testLibrary;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         testLibrary = new ExerciseLibrary();
     }
     
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertTrue(testLibrary.getExercises().isEmpty());
     }
 

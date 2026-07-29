@@ -43,7 +43,7 @@ public class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testWriterGeneralPersonalExerciseList(){
+    void testWriterGeneralPersonalExerciseList() {
         try {
             PersonalExerciseList personalList = new PersonalExerciseList();
             personalList.addExercise(new Exercise("Bench Press", "Chest"));
