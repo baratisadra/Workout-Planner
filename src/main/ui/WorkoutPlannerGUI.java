@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -19,10 +20,14 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+ * The graphical user interface for the workout planner appliction.
+ */
 @ExcludeFromJacocoGeneratedReport
 public class WorkoutPlannerGUI extends JFrame {
     private static final int WIDTH = 900;
@@ -126,9 +131,8 @@ public class WorkoutPlannerGUI extends JFrame {
     private void initializeDisplayPanel() {
         displayPanel = new JPanel();
         displayPanel.setLayout(new BorderLayout());
-        JLabel welcomeLabel = new JLabel("Welcome to Workout Planner", JLabel.CENTER);
-        displayPanel.add(welcomeLabel, BorderLayout.CENTER);
         mainPanel.add(displayPanel, BorderLayout.CENTER);
+        showWelcomeScreen();
     }
 
     /*
@@ -304,6 +308,22 @@ public class WorkoutPlannerGUI extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Unable to load your Workout.");
         }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: Displays the workout plannet application image
+     */
+    private void showWelcomeScreen() {
+        displayPanel.removeAll();
+        ImageIcon originalIcon = new ImageIcon("./data/workout.png");
+        Image scaledImage = originalIcon.getImage().getScaledInstance(650, 500, Image.SCALE_SMOOTH);
+        JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
+        imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        imageLabel.setVerticalAlignment(JLabel.CENTER);
+        displayPanel.add(imageLabel, BorderLayout.CENTER);
+        displayPanel.revalidate();
+        displayPanel.repaint();
     }
 
     /*
