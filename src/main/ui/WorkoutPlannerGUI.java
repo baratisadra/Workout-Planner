@@ -2,7 +2,9 @@ package ui;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.Exercise;
@@ -30,6 +32,7 @@ public class WorkoutPlannerGUI extends JFrame {
     private JButton removeExerciseButton;
     private JButton saveButton;
     private JButton loadButton;
+    private JPanel displayPanel;
 
     /*
      * EFFECTS: Constructs the Workout Planner GUI.
@@ -42,6 +45,7 @@ public class WorkoutPlannerGUI extends JFrame {
         setLocationRelativeTo(null);
         initializeMainPanel();
         initializeControlPanel();
+        initializeDisplayPanel();
         setVisible(true);
     }
 
@@ -93,6 +97,18 @@ public class WorkoutPlannerGUI extends JFrame {
         controlPanel.add(removeExerciseButton);
         controlPanel.add(saveButton);
         mainPanel.add(controlPanel, BorderLayout.WEST);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: initializes the display panel for the workouts
+     */
+    private void initializeDisplayPanel() {
+        displayPanel = new JPanel();
+        displayPanel.setLayout(new BorderLayout());
+        JLabel welcomeLabel = new JLabel("Welcome to Workout Planner", JLabel.CENTER);
+        displayPanel.add(welcomeLabel, BorderLayout.CENTER);
+        mainPanel.add(displayPanel, BorderLayout.CENTER);
     }
 
     /*
